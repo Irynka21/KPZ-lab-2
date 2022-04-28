@@ -1,0 +1,29 @@
+import math
+
+
+def is_prime(num):
+    if num < 2: return False
+    if num == 2 or num == 3: return True
+    for i in range(2, int(math.sqrt(num)) + 1):
+        if num % i == 0:
+            return False
+    return True
+
+
+start = 1
+
+
+def prime_num_generator():
+    global start
+    temp = start + 1
+    while not is_prime(temp):
+        temp += 1
+    start = temp
+    return temp
+
+
+if __name__ == '__main__':
+    print(prime_num_generator())
+    print(prime_num_generator())
+    print(prime_num_generator())
+    print(prime_num_generator())
